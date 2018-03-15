@@ -39,8 +39,9 @@ if __name__ == '__main__':
                 resourse_url = 'http://www.jikexueyuan.com/course/downloadRes?course_id='+unicode(id)
                 # print resourse_url
                 down_resourse_url = down.get_url_resourse(resourse_url) # 获取教学资源的文件地址
-                resourse_path = course_path + u'/资源.zip'
-                down.down_file(resourse_url,course_path,resourse_path)
+                if down_resourse_url != None: # 如果没有学习资源，就不进行下载
+                    resourse_path = course_path + u'/资源.zip'
+                    down.down_file(resourse_url,course_path,resourse_path)
             except:
                 print 'get resourse feild'
             for i in range(num):

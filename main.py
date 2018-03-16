@@ -15,10 +15,16 @@ if __name__ == '__main__':
     course = Course()
     down = Down()
     route_list = route.get_routes(url)
-    for route_tup in route_list:
+    num = route.select()
+    for n in range(0,route_list.__len__()):
         #(url,name)
+        if not num == 0 :
+            if not num == n+1:
+                continue
+        route_tup = route_list[n]
         route_url = route_tup[0]
         route_name = route_tup[1]
+        print u'\n正在下载编号为%s的路线课程'%num+route_name
         route_path = root_path + '/' + route_name
         course_list = []
         course_list = course.get_courses(route_url)
@@ -51,9 +57,9 @@ if __name__ == '__main__':
                 url_class = url_class.replace('id_num',id)
                 #(name,down_url)
                 tup_class = down.get_url_class_down(url_class)
-                class_name = tup_class[0]
-                class_down_url = tup_class[1]
                 try:
+                    class_name = tup_class[0]
+                    class_down_url = tup_class[1]
                     video_path = course_path + u'/' + unicode(class_name) + u'.mp4'
                     down.down_file(class_down_url,course_path,video_path)
                 except:

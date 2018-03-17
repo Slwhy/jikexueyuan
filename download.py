@@ -41,12 +41,14 @@ class Down(Crawl):
     def down_file(self,url,dir,path):
         if not os.path.exists(path):  #如果文件存在就跳过
             r = self.getResponse(url)
-            if os.path.exists(dir):   #判断要下载的目录是否存在
-                with open(path,'wb') as f:
-                    f.write(r.content)
+            if r.status_code == 200: # 判断是否下载到文件
+                if os.path.exists(dir):   #判断要下载的目录是否存在
+                    with open(path,'wb') as f:
+                        f.write(r.content)
+                else:
+                    os.makedirs(dir)
+                    with open(path,'wb') as f:
+                        f.write(r.content)
             else:
-                os.makedirs(dir)
-                with open(path,'wb') as f:
-                    f.write(r.content)
-
+                print 'down the file error'
 

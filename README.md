@@ -11,3 +11,8 @@ jikexueyuan
 │   requements             依赖的包
 |
 └───mytools 个人工具常用爬虫工具
+```
+
+
+## 使用方法
+将 head 中的 cookie 修改为自己的即可

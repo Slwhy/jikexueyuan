@@ -15,4 +15,4 @@ jikexueyuan
 
 
 ## 使用方法
-将 head 中的 cookie 修改为自己的即可
+将 config 内的 header 中的 cookie 修改为自己的即可

@@ -15,4 +15,7 @@ jikexueyuan
 
 
 ## 使用方法
+
+安装相关的包： pip install -r requements
+
 将 config 内的 header 中的 cookie 修改为自己的即可
